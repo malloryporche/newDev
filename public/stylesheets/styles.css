@@ -1,0 +1,181 @@
+/* DEFINE VARIABLES & MIXINS */
+/* Serve images optimized for retina screens */
+/* Base styles / Global Styles */
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; }
+
+body.container {
+  padding: 15px;
+  padding-top: 0; }
+
+/*Typography styling */
+h1 {
+  font-size: 3em; }
+
+h3 {
+  margin: 30px 0; }
+
+h2 {
+  letter-spacing: 2px; }
+
+/* Navbar styling */
+nav ul {
+  margin: 0 auto; }
+  nav ul .nav.navbar-nav {
+    margin-right: 0; }
+  nav ul li {
+    padding: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bolder; }
+nav a {
+  text-decoration: none;
+  font-size: 15px; }
+  nav a .fadeIn {
+    opacity: 1;
+    transition: 1s opacity; }
+  nav a .fadeOut {
+    opacity: 0;
+    transition: none; }
+nav img {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  height: 40px; }
+nav .navbar {
+  margin-top: 25px;
+  padding: 0; }
+nav .navbar-nav {
+  margin-right: 0; }
+
+nav.navbar {
+  background-color: #fff; }
+
+/* Header styling */
+header .row {
+  margin: 0 auto; }
+header #splash {
+  margin: 200px 15px; }
+
+/* Portfolio Styling */
+section.row#folio {
+  background-color: whitesmoke;
+  padding: 45px 0; }
+
+a#resume {
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 20px;
+  border: 1px solid black;
+  margin: 40px;
+  background-color: #fff;
+  font-weight: 800;
+  color: black;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -ms-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -ms-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -ms-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-transition-delay: 0;
+  -moz-transition-delay: 0;
+  -ms-transition-delay: 0;
+  -o-transition-delay: 0;
+  transition-delay: 0; }
+  a#resume:hover {
+    background-color: black;
+    color: white;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -ms-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -ms-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-timing-function: ease-in;
+    -ms-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    -webkit-transition-delay: 0;
+    -moz-transition-delay: 0;
+    -ms-transition-delay: 0;
+    -o-transition-delay: 0;
+    transition-delay: 0; }
+
+/* Carousel Styling */
+div.carousel-inner {
+  border: 1px solid black;
+  margin: 30px 0; }
+  div.carousel-inner img {
+    padding: 20px; }
+
+div.carousel-caption {
+  top: 0;
+  bottom: unset;
+  padding: 7px;
+  right: 0px;
+  left: unset; }
+  div.carousel-caption h3, div.carousel-caption p {
+    margin: 0;
+    color: orange;
+    font-weight: bold; }
+
+div#carouselIndicators li {
+  background-color: black;
+  margin-bottom: 15px 3px; }
+  div#carouselIndicators li:active {
+    background-color: orange; }
+
+/* Expertise styling */
+ul.skills {
+  text-align: center;
+  list-style-type: none;
+  font-size: 1.5em;
+  letter-spacing: .5px;
+  padding: 0; }
+
+/* Footer styling */
+footer {
+  margin: 45px 0; }
+  footer li.social-media-links {
+    display: inline-block;
+    list-style-type: none; }
+  footer ul, footer h6 {
+    margin-top: 60px; }
+  footer h6 {
+    text-align: right; }
+  footer i.fa.fa-linkedin::before,
+  footer i.fa.fa-github::before,
+  footer i.fa.fa-facebook::before {
+    font-size: 25px;
+    padding: 0 25px; }
+  footer img {
+    display: block;
+    margin: 20px auto;
+    text-align: center; }
+
+/* Section styling */
+section.row {
+  margin: 175px 15px; }
+
+/*# sourceMappingURL=styles.css.map */
