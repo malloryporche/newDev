@@ -9,7 +9,7 @@ app.use(express.static('./public/'));
 app.set('view engine', 'pug');
 
 app.get('/', function(req,res) {
-  res.render('index'); 
+  res.render('home'); 
 });
 
 app.listen(3000, () =>  console.log('App is listening on port 3000!'));
