@@ -1,28 +1,9 @@
-extends app
-  
-block main
+extends layout
 
-  header.row
-    section.col-lg-11.col-sm-12#splash
-      h1 "As architects we are often involved in the concrete-steel-and-glass aspect of it, but cities are social structures, and to be involved in imagining the future of cities and the type of relationships and the types of places that we're making is something that intrigues me very much."
-      h3 -Michael Arad
-      hr.col-lg-1#page-top
-      a(href='/page-top')
-  
-      main(data-spy='scroll' data-target='#navbarSpy')
-        
-        section.row
-          div.columns.col-xs-12
-            header
-              h2 biography
-              h6.col-sm-11.col-md-10 Constantly furthering my knowledge of and penchant for software development, I provide an array of development services to businesses large and small.
-            
-              p &quot;Work smart&quot; is not solely a professional philosophy&mdash; this mantra really embodies my approach to life&mdash; I'm still a <span class="italics">firm</span> believer in due diligence, without strategy and focus long as my efforts are strategic and provide tangible value to my clients and community.  So it fits then, that over the years I developed this <span>passion for problem solving...</span>addressing issues of inefficiency, resource waste, and corporate stagnation, often designing/building custom-tailored products and business solutions on the fly.  Having taught myself web development, I have grown very comfortable with technical concepts of varying complexities.  A true California girl through and through, I spend most of my free time at the beach; practicing yoga, or indulging in delectable vegan cuisine via the many emerging vegan restaurants...and creating my own versions at home!
-          div.col-lg-11.col-sm-12
-            a(href="/portfolio")
-            hr.col-lg-1#folio
-              
-        section.row
-          header.col-sm-12.col-lg-6
-            h2 selected portfolio
-            h6.col-sm-12.col-lg-6 I'm currently revamping my last MVP, a <a href="http://mallorys-mealplan.eu.meteorapp.com/">meal planning app</a> that indexes recipes, tracks caloric intake, and creates grocery shopping lists.
+block main  
+  section
+    if name
+      h1.greeting Welcome #{name}! 
+      a(href='/recipes') Recipes
+    else 
+      a(href='/hello') Log in

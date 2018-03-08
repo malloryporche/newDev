@@ -1,0 +1,17 @@
+extends layout
+
+block main
+  h1 Recipe Book
+
+  ul
+    each recipe in recipes
+      li= recipe.name
+  
+  section.recipeCard
+    h1.recipe-title recipeTitle
+    hr
+    h6.recipe-description recipeDescription
+    a.recipe-details(href='#') View Details
+    button(type='submit' class='addToMenu') Add To Menu
+    button(type='submit' class='removeFromMenu') Remove From Menu
+    
