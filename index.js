@@ -59,9 +59,23 @@ app.use(express.static('./public/'));
 app.set('view engine', 'pug');
 
 const mainRoutes = require('./routes');
-const recipeRoutes = require('./routes/recipes');
-
 app.use(mainRoutes);
-// app.use('/recipes', recipeRoutes);
+
+//  Catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('File not found');
+  err.status = 404;
+  next(err);
+});
+
+//  error handler
+//  defined as the last app.use callback
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
 
 app.listen(3000, () =>  console.log('Server is running on localhost 3000!'));

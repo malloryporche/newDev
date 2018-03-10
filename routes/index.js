@@ -86,6 +86,25 @@ router.get('/register', (req, res, next) => {
   res.render('register', { title: 'Sign up'});
 });
 
+router.post('/register', (req, res, next) => {
+  if (req.body.email &&
+      req.body.name &&
+      req.body.favoriteBook &&
+      req.body.password &&
+      req.body.confirmPassword) {
+
+      if (req.body.password !== req.body.confirmPassword) {
+        var err = new Error('Passwords do not match.');
+        err.status = 400;
+        return next(err);
+        }
+      } else {
+        var err = new Error('All fields are required.');
+        err.status = 400;
+        return next(err);
+      }
+});
+
 router.get('/goodbye', (req, res) => {
   res.clearCookie('username');
   res.redirect('/hello');
