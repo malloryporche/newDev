@@ -5,13 +5,15 @@ block main
 
   ul
     each recipe in recipes
-      li= recipe.name
-  
-  section.recipeCard
-    h1.recipe-title recipeTitle
-    hr
-    h6.recipe-description recipeDescription
-    a.recipe-details(href='#') View Details
-    button(type='submit' class='addToMenu') Add To Menu
-    button(type='submit' class='removeFromMenu') Remove From Menu
+      li
+        h2
+          a(href='/recipes/id/#{id}')=  recipe.name
+      if recipe.ingredients
+        h6 Ingredients
+        li= recipe.ingredients[1]
+        li= recipe.ingredients[2]
+        li= recipe.ingredients[3]
+      else
+        h6 This recipe doesn't have any ingredients listed yet.
+
     

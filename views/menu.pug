@@ -1,0 +1,13 @@
+extends layout
+
+block main
+  section.row
+    h1 Menu for the week of #WEEK
+  hr
+    
+  each recipe in recipes
+    ul
+        li= recipe.name   
+          button(type='submit' style='float:right;') Remove from menu
+      
+  
