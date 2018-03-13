@@ -155,9 +155,19 @@ router.get('/profile', (req, res, next) => {
     });
 });
 
-router.get('/goodbye', (req, res) => {
 
-  res.redirect('/hello');
-});
+// GET /logout
+router.get('/logout', (req, res, next) => {
+  if (req.session) {
+    //  delete session
+    req.session.destroy(function(err) {
+      if (err) {
+        return next(err);
+      } else {
+        res.redirect('/home');
+      }
+    });
+  }
+})
 
 module.exports = router;
