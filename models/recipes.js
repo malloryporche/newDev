@@ -13,5 +13,9 @@ var RecipeSchema = new mongoose.Schema({
   ingredients: {
     type: Array,
     required: true,
+  },
+  directions: {
+    type: Array,
+    required: false
   }
 });

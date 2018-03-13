@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
 
 const recipes = [
   {
@@ -98,11 +99,33 @@ router.post('/register', (req, res, next) => {
         err.status = 400;
         return next(err);
         }
+
+        //  create object with form input
+        var userData = {
+          email: req.body.email,
+          name: req.body.name,
+          favoriteBook: req.body.favoriteBook,
+          password: req.body.password
+        };
+
+        //  use schema's `create` method to insert document into Mongo
+        User.create(userData, function(error, user) {
+          if (error) {
+            return next(error);
+          } else {
+            return res.redirect('/profile');
+          }
+        });
+
       } else {
-        var err = new Error('All fields are required.');
+        err = new Error('All fields are required.');
         err.status = 400;
         return next(err);
       }
+});
+
+router.get('/profile', (req, res, next) => {
+  res.render('profile', { title: 'Profile' });
 });
 
 router.get('/goodbye', (req, res) => {

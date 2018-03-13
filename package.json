@@ -9,6 +9,7 @@
   "author": "malloryburke",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "bootstrap-sass": "^3.3.7",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
