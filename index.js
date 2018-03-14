@@ -23,12 +23,6 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/recipebook');
 var db = mongoose.connection;
 
-//  make user ID available in templates
-app.use(function (req, res, next) {
-  res.locals.currentUser = req.session.userId;
-  next();
-});
-
 //  Session config for Passport and MongoDB
 var sessionOptions = {
   secret: 'Mallory loves Mallory',
@@ -40,6 +34,12 @@ var sessionOptions = {
 };
 
 app.use(session(sessionOptions));
+
+//  make user ID available in templates
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.session.userId;
+  next();
+});
 
 //  Initialize passport
 app.use(passport.initialize());
