@@ -17,6 +17,8 @@
     "express-session": "^1.15.6",
     "mongodb": "^3.0.4",
     "mongoose": "^5.0.9",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
     "pug": "^2.0.0-rc.4"
   }
 }

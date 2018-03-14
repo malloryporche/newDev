@@ -153,7 +153,7 @@ router.get('/profile', mid.requiresLogin, (req, res, next) => {
 
 
 // GET /logout
-router.get('/logout', (req, res, next) => {
+router.get('/logout', function(req, res, next){
   if (req.session) {
     //  delete session
     req.session.destroy(function(err) {
