@@ -4,15 +4,23 @@ const cookieParser = require('cookie-parser');
 const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 //  Start express app
 const app = express();
+
+//  mongodb Connection
+mongoose.connect('mongodb://localhost:27017/recipebook');
+var db = mongoose.connection;
 
 //  use sessions for tracking logins
 app.use(session({
   secret: 'treehouse loves you',
   resave: true,
-  saveUnitialized: false
+  saveUnitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db
+  })
 }));
 
 //  make user ID available in templates
@@ -20,9 +28,6 @@ app.use(function (req, res, next) {
   res.locals.currentUser = req.session.userId;
   next();
 });
-//  mongodb Connection
-mongoose.connect('mongodb://localhost:27017/recipebook');
-var db = mongoose.connection;
 
 //  mongo Error
 db.on('error', console.error.bind(console, 'connection error:'));

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const mid = require('../middleware');
 
 const recipes = [
   {
@@ -66,7 +67,7 @@ router.get('/menu', (req, res, next) => {
 });
 
 //  GET /login
-router.get('/login', (req, res, next) => {
+router.get('/login', mid.loggedOut, (req, res, next) => {
   res.render('login', { title: 'Login'});
 });
 
@@ -91,7 +92,7 @@ router.post('/login', (req, res, next) => {
 });
 
 //  GET /register
-router.get('/register', (req, res, next) => {
+router.get('/register', mid.loggedOut, (req, res, next) => {
   res.render('register', { title: 'Sign up'});
 });
 
@@ -136,12 +137,7 @@ router.post('/register', (req, res, next) => {
 });
 
 //  GET /profile
-router.get('/profile', (req, res, next) => {
-  if (! req.session.userId) {
-    var err = new Error('You are not authorized to view this page.');
-    err.status = 401;
-    return next(err);
-  }
+router.get('/profile', mid.requiresLogin, (req, res, next) => {
   User.findById(req.session.userId)
     .exec(function (error, user) {
       if (error) {
@@ -164,10 +160,10 @@ router.get('/logout', (req, res, next) => {
       if (err) {
         return next(err);
       } else {
-        res.redirect('/home');
+        res.redirect('/');
       }
     });
   }
-})
+});
 
 module.exports = router;
